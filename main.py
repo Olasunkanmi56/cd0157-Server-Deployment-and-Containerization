@@ -16,6 +16,7 @@ JWT_SECRET = os.environ.get('JWT_SECRET', 'abc123abc1234')
 LOG_LEVEL = os.environ.get('LOG_LEVEL', 'INFO')
 
 
+
 def _logger():
     '''
     Setup logger format, level, and handler.
@@ -62,6 +63,7 @@ def health():
     return jsonify("Healthy")
 
 
+
 @APP.route('/auth', methods=['POST'])
 def auth():
     """
@@ -86,7 +88,7 @@ def auth():
 @APP.route('/contents', methods=['GET'])
 def decode_jwt():
     """
-    Check user token and return non-secret data
+    Check user token and return non-secret 
     """
     if not 'Authorization' in request.headers:
         abort(401)
